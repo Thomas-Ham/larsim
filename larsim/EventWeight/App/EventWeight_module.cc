@@ -23,6 +23,7 @@
 #include "larsim/EventWeight/Base/Weight_t.h"
 #include "larsim/EventWeight/Base/MCEventWeight.h"
 #include "larsim/EventWeight/Base/WeightManager.h"
+#include "nugen/EventGeneratorBase/GENIE/GENIE2ART.h" 
 
 #include "nusimdata/SimulationBase/MCTruth.h"
 
@@ -58,6 +59,8 @@ namespace evwgh {
     auto const n_func = _wgt_manager.Configure(p, *this);
     if ( n_func > 0 )
       produces<std::vector<MCEventWeight> >();
+
+    evgb::SetEventGeneratorListAndTune();  
   }
 
   void EventWeight::produce(art::Event & e)
